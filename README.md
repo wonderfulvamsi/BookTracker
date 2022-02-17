@@ -1,5 +1,5 @@
 # BookTracker
-<h1>A responsive web app for taking note of highlights from books to demonstrate CRUD operations.</h2>
+<h2>A responsive web app for taking note of highlights from books to demonstrate CRUD operations.</h2>
 
 <h3>Made with MongoDB, Express, React, Node & Bootstrap.</h3>
 
