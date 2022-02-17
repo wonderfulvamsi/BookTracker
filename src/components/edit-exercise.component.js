@@ -98,7 +98,7 @@ export default class EditExercise extends Component {
         <h3>Edit Exercise Log</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Username: </label>
+            <label>Book name: </label>
             <select ref="userInput"
               required
               className="form-control"
@@ -115,7 +115,7 @@ export default class EditExercise extends Component {
             </select>
           </div>
           <div className="form-group">
-            <label>Description: </label>
+            <label>Insight: </label>
             <input type="text"
               required
               className="form-control"
@@ -124,7 +124,7 @@ export default class EditExercise extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Duration (in minutes): </label>
+            <label>Chapter (number): </label>
             <input
               type="text"
               className="form-control"
