@@ -1,7 +1,9 @@
 # BookTracker
-A MERN app for taking note of highlights from books to demonstrate CRUD operations
+A responsive web app for taking note of highlights from books to demonstrate CRUD operations
 
 Made with MongoDB, Express, React, Node & Bootstrap.
+
+Below are few screenshots of the app.
 
 |![home_pg](https://github.com/wonderfulvamsi/BookTracker/blob/main/screenshots/home.JPG)|
 |:--:| 
