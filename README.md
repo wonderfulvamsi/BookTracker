@@ -1,5 +1,6 @@
 # BookTracker
 A MERN APP FOR TAKING NOTE OF HIGHLIGHTS FROM BOOKS TO DEMONISTRATE CRUD OPERATIONS
+<br/>
 ![home_pg](https://github.com/wonderfulvamsi/BookTracker/blob/main/screenshots/home.JPG)
 *The above image shows the home page*
 
