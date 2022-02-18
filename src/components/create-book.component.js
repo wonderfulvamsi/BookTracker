@@ -1,38 +1,38 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class CreateUser extends Component {
+export default class CreateBook extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeUsername = this.onChangeUsername.bind(this);
+    this.onChangeBookname = this.onChangeBookname.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      username: ''
+      bookname: ''
     }
   }
 
-  onChangeUsername(e) {
+  onChangeBookname(e) {
     this.setState({
-      username: e.target.value
+      bookname: e.target.value
     })
   }
 
   onSubmit(e) {
     e.preventDefault();
 
-    const user = {
-      username: this.state.username
+    const book = {
+      bookname: this.state.bookname
     }
 
-    console.log(user);
+    console.log(book);
 
-    axios.post('http://localhost:5000/users/add', user)
+    axios.post('http://localhost:5000/books/add', book)
       .then(res => console.log(res.data));
 
     this.setState({
-      username: ''
+      bookname: ''
     })
   }
 
@@ -42,12 +42,12 @@ export default class CreateUser extends Component {
         <h3>Create New Book</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
-            <label>Username: </label>
+            <label>Bookname: </label>
             <input type="text"
               required
               className="form-control"
-              value={this.state.username}
-              onChange={this.onChangeUsername}
+              value={this.state.bookname}
+              onChange={this.onChangeBookname}
             />
           </div>
           <div className="form-group">
