@@ -8,15 +8,15 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const username = req.body.username;
-  const description = req.body.description;
-  const duration = Number(req.body.duration);
+  const bookname = req.body.bookname;
+  const insight = req.body.insight;
+  const chapter = Number(req.body.chapter);
   const date = Date.parse(req.body.date);
 
   const newHighlight = new Highlight({
-    username,
-    description,
-    duration,
+    bookname,
+    insight,
+    chapter,
     date,
   });
 
@@ -40,9 +40,9 @@ router.route('/:id').delete((req, res) => {
 router.route('/update/:id').post((req, res) => {
   Highlight.findById(req.params.id)
     .then(highlight => {
-      highlight.username = req.body.username;
-      highlight.description = req.body.description;
-      highlight.duration = Number(req.body.duration);
+      highlight.bookname = req.body.bookname;
+      highlight.insight = req.body.insight;
+      highlight.chapter = Number(req.body.chapter);
       highlight.date = Date.parse(req.body.date);
 
       highlight.save()
