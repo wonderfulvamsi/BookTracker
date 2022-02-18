@@ -11,6 +11,6 @@ const hightlightSchema = new Schema({
   timestamps: true,
 });
 
-const Hightlight = mongoose.model('Hightlight', hightlightSchema);
+const Hightlight = mongoose.model('Hightlight', hightlightSchema)
 
 module.exports = Hightlight;
