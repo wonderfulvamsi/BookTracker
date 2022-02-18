@@ -7,18 +7,18 @@ export default class EditHighlight extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.onChangeDuration = this.onChangeDuration.bind(this);
+    this.onChangeBookname = this.onChangeBookname.bind(this);
+    this.onChangeInsight = this.onChangeInsight.bind(this);
+    this.onChangeChapter = this.onChangeChapter.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      username: '',
-      description: '',
-      duration: 0,
+      bookname: '',
+      insight: '',
+      chapter: 0,
       date: new Date(),
-      users: []
+      books: []
     }
   }
 
@@ -26,9 +26,9 @@ export default class EditHighlight extends Component {
     axios.get('http://localhost:5000/highlights/' + this.props.match.params.id)
       .then(response => {
         this.setState({
-          username: response.data.username,
-          description: response.data.description,
-          duration: response.data.duration,
+          bookname: response.data.bookname,
+          insight: response.data.insight,
+          chapter: response.data.chapter,
           date: new Date(response.data.date)
         })
       })
@@ -36,11 +36,11 @@ export default class EditHighlight extends Component {
         console.log(error);
       })
 
-    axios.get('http://localhost:5000/users/')
+    axios.get('http://localhost:5000/books/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
-            users: response.data.map(user => user.username),
+            books: response.data.map(book => book.bookname),
           })
         }
       })
@@ -50,19 +50,19 @@ export default class EditHighlight extends Component {
 
   }
 
-  onChangeUsername(e) {
+  onChangeBookname(e) {
     this.setState({
       username: e.target.value
     })
   }
 
-  onChangeDescription(e) {
+  onChangeInsight(e) {
     this.setState({
       description: e.target.value
     })
   }
 
-  onChangeDuration(e) {
+  onChangeChapter(e) {
     this.setState({
       duration: e.target.value
     })
@@ -78,9 +78,9 @@ export default class EditHighlight extends Component {
     e.preventDefault();
 
     const highlight = {
-      username: this.state.username,
-      description: this.state.description,
-      duration: this.state.duration,
+      bookname: this.state.bookname,
+      insight: this.state.insight,
+      chapter: this.state.chapter,
       date: this.state.date
     }
 
@@ -99,16 +99,16 @@ export default class EditHighlight extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Book name: </label>
-            <select ref="userInput"
+            <select ref="bookInput"
               required
               className="form-control"
-              value={this.state.username}
-              onChange={this.onChangeUsername}>
+              value={this.state.bookname}
+              onChange={this.onChangeBookname}>
               {
                 this.state.users.map(function (user) {
                   return <option
-                    key={user}
-                    value={user}>{user}
+                    key={book}
+                    value={book}>{book}
                   </option>;
                 })
               }
@@ -119,8 +119,8 @@ export default class EditHighlight extends Component {
             <input type="text"
               required
               className="form-control"
-              value={this.state.description}
-              onChange={this.onChangeDescription}
+              value={this.state.insight}
+              onChange={this.onChangeInsight}
             />
           </div>
           <div className="form-group">
@@ -128,8 +128,8 @@ export default class EditHighlight extends Component {
             <input
               type="text"
               className="form-control"
-              value={this.state.duration}
-              onChange={this.onChangeDuration}
+              value={this.state.chapter}
+              onChange={this.onChangeChapter}
             />
           </div>
           <div className="form-group">
