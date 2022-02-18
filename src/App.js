@@ -3,10 +3,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route} from "react-router-dom";
 
 import Navbar from "./components/navbar.component"
-import ExercisesList from "./components/exercises-list.component";
-import EditExercise from "./components/edit-exercise.component";
-import CreateExercise from "./components/create-exercise.component";
-import CreateUser from "./components/create-user.component";
+import HighlightsList from "./components/highlights-list.component";
+import EditHighlight from "./components/edit-highlight.component";
+import CreateHighlight from "./components/create-highlight.component";
+import CreateBook from "./components/create-book.component";
 
 function App() {
   return (
@@ -14,10 +14,10 @@ function App() {
       <div className="container">
       <Navbar />
       <br/>
-      <Route path="/" exact component={ExercisesList} />
-      <Route path="/edit/:id" component={EditExercise} />
-      <Route path="/create" component={CreateExercise} />
-      <Route path="/user" component={CreateUser} />
+      <Route path="/" exact component={HighlightsList} />
+      <Route path="/edit/:id" component={EditHighlight} />
+      <Route path="/create" component={CreateHighlight} />
+      <Route path="/book" component={CreateBook} />
       </div>
     </Router>
   );
