@@ -3,7 +3,7 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-export default class EditExercise extends Component {
+export default class EditHighlight extends Component {
   constructor(props) {
     super(props);
 
@@ -23,7 +23,7 @@ export default class EditExercise extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/exercises/' + this.props.match.params.id)
+    axios.get('http://localhost:5000/highlights/' + this.props.match.params.id)
       .then(response => {
         this.setState({
           username: response.data.username,
@@ -77,16 +77,16 @@ export default class EditExercise extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const exercise = {
+    const highlight = {
       username: this.state.username,
       description: this.state.description,
       duration: this.state.duration,
       date: this.state.date
     }
 
-    console.log(exercise);
+    console.log(highlight);
 
-    axios.post('http://localhost:5000/exercises/update/' + this.props.match.params.id, exercise)
+    axios.post('http://localhost:5000/highlights/update/' + this.props.match.params.id, highlight)
       .then(res => console.log(res.data));
 
     window.location = '/';
@@ -95,7 +95,7 @@ export default class EditExercise extends Component {
   render() {
     return (
       <div>
-        <h3>Edit Exercise Log</h3>
+        <h3>Edit Highlight Log</h3>
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Book name: </label>
