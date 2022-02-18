@@ -74,7 +74,7 @@ export default class CreateHighlight extends Component {
 
     console.log(highlight);
 
-    axios.post('http://localhost:5000/highlights/add', highlight)
+    axios.post('http://localhost:5000/hightlights/add', highlight)
       .then(res => console.log(res.data));
 
     window.location = '/';
