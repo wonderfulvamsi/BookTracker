@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let Highlight = require('../models/highlight.model');
+let Highlight = require('../models/hightlight.model');
 
 router.route('/').get((req, res) => {
   Highlight.find()
