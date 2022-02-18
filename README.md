@@ -4,7 +4,7 @@
 <h3>Made with MongoDB, Express, React, Node & Bootstrap.</h3>
 
 <p>Below are few screenshots of the app.</p>
-|[Or click here to watch the demo](https://youtu.be/5mc4jjF4iMA")|
+![Or click here to watch the demo](https://youtu.be/5mc4jjF4iMA")
 
 |![home_pg](https://github.com/wonderfulvamsi/BookTracker/blob/main/screenshots/home.JPG)|
 |:--:| 
