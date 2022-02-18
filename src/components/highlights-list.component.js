@@ -4,9 +4,9 @@ import axios from 'axios';
 
 const Highlight = props => (
   <tr>
-    <td>{props.highlight.username}</td>
-    <td>{props.highlight.description}</td>
-    <td>{props.highlight.duration}</td>
+    <td>{props.highlight.bookname}</td>
+    <td>{props.highlight.insight}</td>
+    <td>{props.highlight.chapter}</td>
     <td>{props.highlight.date.substring(0, 10)}</td>
     <td>
       <Link to={"/edit/" + props.highlight._id}>edit</Link> | <a href="#" onClick={() => { props.deleteExercise(props.highlight._id) }}>delete</a>
