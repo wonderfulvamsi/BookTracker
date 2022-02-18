@@ -24,7 +24,7 @@ export default class HighlightsList extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/highlights/')
+    axios.get('http://localhost:5000/hightlights/')
       .then(response => {
         this.setState({ highlights: response.data })
       })
@@ -34,7 +34,7 @@ export default class HighlightsList extends Component {
   }
 
   deleteHighlight(id) {
-    axios.delete('http://localhost:5000/highlights/' + id)
+    axios.delete('http://localhost:5000/hightlights/' + id)
       .then(response => { console.log(response.data) });
 
     this.setState({
