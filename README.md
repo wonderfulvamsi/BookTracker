@@ -7,6 +7,7 @@
 <p>
 <a href = "https://youtu.be/5mc4jjF4iMA" target="_blank">Or click here to watch the demo</a>
 </p>
+
 |![home_pg](https://github.com/wonderfulvamsi/BookTracker/blob/main/screenshots/home.JPG)|
 |:--:| 
 |*1. The above image shows the home page*|
