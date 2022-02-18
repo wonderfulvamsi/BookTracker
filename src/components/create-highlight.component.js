@@ -3,32 +3,32 @@ import axios from 'axios';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 
-export default class CreateExercise extends Component {
+export default class CreateHighlight extends Component {
   constructor(props) {
     super(props);
 
-    this.onChangeUsername = this.onChangeUsername.bind(this);
-    this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.onChangeDuration = this.onChangeDuration.bind(this);
+    this.onChangeBookname = this.onChangeBookname.bind(this);
+    this.onChangeInsight = this.onChangeInsight.bind(this);
+    this.onChangeChapter = this.onChangeChapter.bind(this);
     this.onChangeDate = this.onChangeDate.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      username: '',
-      description: '',
-      duration: 0,
+      bookname: '',
+      insight: '',
+      chapter: 0,
       date: new Date(),
-      users: []
+      books: []
     }
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/users/')
+    axios.get('http://localhost:5000/books/')
       .then(response => {
         if (response.data.length > 0) {
           this.setState({
-            users: response.data.map(user => user.username),
-            username: response.data[0].username
+            books: response.data.map(book => book.bookname),
+            bookname: response.data[0].bookname
           })
         }
       })
@@ -38,21 +38,21 @@ export default class CreateExercise extends Component {
 
   }
 
-  onChangeUsername(e) {
+  onChangeBookname(e) {
     this.setState({
-      username: e.target.value
+      bookname: e.target.value
     })
   }
 
-  onChangeDescription(e) {
+  onChangeInsight(e) {
     this.setState({
-      description: e.target.value
+      insight: e.target.value
     })
   }
 
-  onChangeDuration(e) {
+  onChangeChapter(e) {
     this.setState({
-      duration: e.target.value
+      chapter: e.target.value
     })
   }
 
@@ -65,16 +65,16 @@ export default class CreateExercise extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const exercise = {
-      username: this.state.username,
-      description: this.state.description,
-      duration: this.state.duration,
+    const highlight = {
+      bookname: this.state.bookname,
+      insight: this.state.insight,
+      chapter: this.state.chapter,
       date: this.state.date
     }
 
-    console.log(exercise);
+    console.log(highlight);
 
-    axios.post('http://localhost:5000/exercises/add', exercise)
+    axios.post('http://localhost:5000/highlights/add', highlight)
       .then(res => console.log(res.data));
 
     window.location = '/';
@@ -87,16 +87,16 @@ export default class CreateExercise extends Component {
         <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Bookname: </label>
-            <select ref="userInput"
+            <select ref="bookInput"
               required
               className="form-control"
-              value={this.state.username}
-              onChange={this.onChangeUsername}>
+              value={this.state.bookname}
+              onChange={this.onChangeBookname}>
               {
-                this.state.users.map(function (user) {
+                this.state.books.map(function (book) {
                   return <option
-                    key={user}
-                    value={user}>{user}
+                    key={book}
+                    value={book}>{book}
                   </option>;
                 })
               }
@@ -107,8 +107,8 @@ export default class CreateExercise extends Component {
             <input type="text"
               required
               className="form-control"
-              value={this.state.description}
-              onChange={this.onChangeDescription}
+              value={this.state.insight}
+              onChange={this.onChangeInsight}
             />
           </div>
           <div className="form-group">
@@ -116,8 +116,8 @@ export default class CreateExercise extends Component {
             <input
               type="text"
               className="form-control"
-              value={this.state.duration}
-              onChange={this.onChangeDuration}
+              value={this.state.chapter}
+              onChange={this.onChangeChapter}
             />
           </div>
           <div className="form-group">
