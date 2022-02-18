@@ -23,7 +23,7 @@ export default class EditHighlight extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/highlights/' + this.props.match.params.id)
+    axios.get('http://localhost:5000/hightlights/' + this.props.match.params.id)
       .then(response => {
         this.setState({
           bookname: response.data.bookname,
@@ -86,7 +86,7 @@ export default class EditHighlight extends Component {
 
     console.log(highlight);
 
-    axios.post('http://localhost:5000/highlights/update/' + this.props.match.params.id, highlight)
+    axios.post('http://localhost:5000/hightlights/update/' + this.props.match.params.id, highlight)
       .then(res => console.log(res.data));
 
     window.location = '/';
