@@ -52,19 +52,19 @@ export default class EditHighlight extends Component {
 
   onChangeBookname(e) {
     this.setState({
-      username: e.target.value
+      bookname: e.target.value
     })
   }
 
   onChangeInsight(e) {
     this.setState({
-      description: e.target.value
+      insight: e.target.value
     })
   }
 
   onChangeChapter(e) {
     this.setState({
-      duration: e.target.value
+      chapter: e.target.value
     })
   }
 
@@ -105,7 +105,7 @@ export default class EditHighlight extends Component {
               value={this.state.bookname}
               onChange={this.onChangeBookname}>
               {
-                this.state.users.map(function (user) {
+                this.state.books.map(function (book) {
                   return <option
                     key={book}
                     value={book}>{book}
